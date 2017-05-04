@@ -1,0 +1,18 @@
+<h3> Home Page </h3>
+<% @posts.each do |post| %>
+=============
+<br />
+<div class="title">
+<a href="posts/<%= post.id %>"><%= post.title %></a>
+</div>
+<br />
+<%= post.post_text %>
+<br />
+Author:<%= post.user.first_name %>
+<br />
+Remedy Origin: "country"
+<br />
+<%= post.comments.length %> Comments 
+<br />
+
+<% end %>

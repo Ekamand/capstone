@@ -1,0 +1,68 @@
+<body>
+  <center>
+  <table style="width:100%"> 
+  <tr>
+  <td>
+<h2 class="page_title">Login</h2>
+ <table style="width:50%"> 
+  <tr>
+
+            <%= form_tag "/login", method: :post do %>
+
+
+
+             <td>Email Address:</td>
+            <td> <input type="email" name="user_email"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input type="password" name="user_password"></td>
+           </tr>
+           <tr>
+           <td> <input type="submit" value="Log In"></td>
+           </tr>
+            <% end %>
+</tr>
+</table>
+</td>
+<td>
+ <table style="width:50%"> 
+<tr>
+
+
+<h2 class="page_title">Signup!</h2>
+<%= form_tag '/users', method: :post do  %>
+  
+    <td>First Name:
+   <td> <input type="text" name="input_first_name"></td>
+</tr>
+<tr>
+      <td>Last Name:</td>
+    <td><input type="text" name="input_last_name"></td>
+</tr>
+<tr>
+    <td>Email:</td>
+    <td><input type="email" name="input_email"></td>
+</tr>
+<tr>
+    <td>Password:</td>
+    <td><input type="password" name="input_password"></td>
+</tr>
+<tr>
+    <td>Confirm Password:</td>
+    <td><input type="password" name="input_password_confirmation"></td>
+  </tr>
+  <td><input type="submit" value="Submit"></td>
+<% end %>
+
+    
+    </td>
+    </tr>
+    </table>
+</td>
+
+</table>
+
+  </center>
+  </tr>
+</body>

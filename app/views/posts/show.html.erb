@@ -1,0 +1,45 @@
+<% if current_user && current_user.admin%>
+<%= form_tag "/posts/#{@post.id}", method: :delete,
+				data: {confirm: "Are you sure?"} do %> 
+<input type="submit" class="btn btn-danger" value="Delete Post">
+<% end %>
+
+<a href="/posts/<%= @post.id %>/edit" type="submit" 
+	class="btn btn-warning" value="Update Post">Edit</a>
+	<% end %>
+<br>
+Post Id:<%= @post.id %>
+<br>
+Post Title:<%= @post.title %>
+<br>
+<br>
+Ingredients: <%=@post.ingredients %>
+<br>
+<br>
+Post Text:<%= @post.post_text %>
+<br>
+Author:<%= @post.user.first_name %>
+<br>
+<%= form_tag "/favorites", method: :post do %>
+<input type="hidden" class="form-control" placeholder="post id" name="input_post_id" value="<%= @post.id %>">
+<input type="submit" class="btn btn-success" value="Add to favorites">
+<% end %>
+
+
+<br>
+<h4><%=@comments.length %> Comments </h4>
+<% @post.comments.each do |comment| %>
+	<p><%= comment.comment_text %></p>
+	<% end %>
+<h3> Add Comment </h3>
+ <%= form_tag "/comments", method: :post do %>
+		Comment Text: 
+		<input type="hidden" class="form-control" value="<%= @post.id %>" name="input_post_id">
+		<br>
+		<input type="text" class="form-control" placeholder="Comment" name="input_post_comment">
+		<br>
+		<input type="submit" class="btn btn-success" value="Comment">
+<% end %>
+
+
+

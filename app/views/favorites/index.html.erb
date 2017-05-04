@@ -1,0 +1,16 @@
+<h3> Favorites index </h3>
+
+<% @favorites.each do |favorite| %>
+	==============
+	<br />
+	Post Title: <a href="posts/<%= favorite.post.id %>"><%= favorite.post.title %></a>
+	<br />
+	Post Text: <%= favorite.post.post_text %>
+	<br />
+	Written By: <%= favorite.user.first_name %>
+
+		<%= form_tag "/favorites/#{favorite.id}", method: :delete,
+						data: {confirm: "Are you sure?"} do %> 
+			<input type="submit" class="btn btn-danger" value="Remove Favorite">
+		<% end %>
+<% end %>
